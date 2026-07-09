@@ -1,0 +1,2022 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار الذكاء الاصطناعي وأساسيات البرمجة - 100 سؤال</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Fira+Code:wght@400;600&family=Amiri:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --text-color: #c9d1d9;
+            --accent-color: #58a6ff;
+            --success-color: #2ea44f;
+            --danger-color: #f85149;
+            --warning-color: #f0883e;
+            --border-color: #30363d;
+            --gold: #d4af37;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            max-width: 120px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            margin: 10px 0 5px 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.3s, opacity 0.3s;
+            margin: 5px;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn:disabled {
+            background-color: #21262d;
+            color: #8b949e;
+            cursor: not-allowed;
+        }
+
+        .btn-youtube {
+            background-color: #ff0000;
+        }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+        }
+
+        .btn-check {
+            background-color: #8957e5;
+        }
+
+        .btn-pdf {
+            background-color: #e5533d;
+        }
+
+        .btn-image {
+            background-color: #9c6ade;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #d4af37, #f5d780);
+            color: #2b1e00;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: white;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+        }
+
+        .timer-box {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: var(--warning-color);
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-family: 'Fira Code', monospace;
+            z-index: 1000;
+        }
+
+        .badge {
+            background-color: #21262d;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .pass-badge {
+            display: inline-block;
+            background-color: rgba(46, 164, 79, 0.15);
+            border: 1px solid var(--success-color);
+            color: var(--success-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .option-item {
+            margin-bottom: 12px;
+            background-color: var(--bg-color);
+            padding: 14px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .option-item:hover {
+            background-color: #1f242c;
+        }
+
+        .option-item input {
+            margin-left: 12px;
+            cursor: pointer;
+        }
+
+        .option-item.correct {
+            background-color: rgba(46, 164, 79, 0.15) !important;
+            border-color: var(--success-color) !important;
+        }
+
+        .option-item.wrong {
+            background-color: rgba(248, 81, 73, 0.15) !important;
+            border-color: var(--danger-color) !important;
+        }
+
+        .feedback-msg {
+            font-weight: bold;
+            margin: 15px 0;
+            font-size: 1.1rem;
+        }
+
+        .nav-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+        }
+
+        #quiz-container,
+        #result-container {
+            display: none;
+        }
+
+        .interactive-tab {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .interactive-tab-header {
+            background-color: #1f242c;
+            padding: 12px 15px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background 0.2s;
+        }
+
+        .interactive-tab-header:hover {
+            background-color: #282e38;
+        }
+
+        .interactive-tab-content {
+            padding: 15px;
+            background-color: var(--bg-color);
+            display: none;
+            border-top: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.7;
+        }
+
+        .interactive-tab.active .interactive-tab-content {
+            display: block;
+        }
+
+        .interactive-tab-header::after {
+            content: '📂';
+            font-size: 0.9rem;
+            transition: transform 0.2s;
+        }
+
+        .interactive-tab.active .interactive-tab-header::after {
+            transform: rotate(90deg);
+        }
+
+        .progress-bar-outer {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            height: 10px;
+            overflow: hidden;
+            margin: 12px 0 20px 0;
+        }
+
+        .progress-bar-inner {
+            background: linear-gradient(90deg, var(--accent-color), #79c0ff);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .qcode {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 6px;
+            direction: ltr;
+            text-align: left;
+            font-family: 'Fira Code', monospace;
+            overflow-x: auto;
+            color: #ff7b72;
+            white-space: pre-wrap;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        /* ================= شهادة الاعتماد - تصميم أصلي ================= */
+        /* ده الجزء اللي بيعمل شكل الشهادة النهائى في الصفحة، من الخلفية لحد الإطار واللون الذهبي */
+        /* هنا بنحدد شكل الصندوق الرئيسي للشهادة وكمان بنضيف تأثيرات بسيطة عشان تبقى جميلة ومشتركة */
+        .certificate-wrapper {
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+
+        .certificate-box {
+            width: 100%;
+            min-width: 620px;
+            max-width: 900px;
+            margin: 20px auto;
+            position: relative;
+            background:
+                radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.10), transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(88, 166, 255, 0.10), transparent 40%),
+                linear-gradient(135deg, #0f1420 0%, #182238 60%, #0f1420 100%);
+            border: 2px solid var(--gold);
+            border-radius: 14px;
+            padding: 34px 40px;
+            box-sizing: border-box;
+            color: #eef2f7;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .certificate-box::before {
+            content: "";
+            position: absolute;
+            inset: 10px;
+            border: 1.5px dashed rgba(212, 175, 55, 0.55);
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        .cert-top-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cert-logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+        }
+
+        .cert-academy-name {
+            text-align: center;
+            flex: 1;
+        }
+
+        .cert-academy-name .cert-academy-title {
+            font-size: 1.05rem;
+            font-weight: 900;
+            color: var(--gold);
+            letter-spacing: 0.5px;
+        }
+
+        .cert-academy-name .cert-academy-sub {
+            font-size: 0.75rem;
+            color: #9fb0c3;
+            margin-top: 2px;
+        }
+
+        .cert-serial {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.7rem;
+            color: #8ea2ba;
+            text-align: left;
+            direction: ltr;
+        }
+
+        .cert-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 18px 0;
+        }
+
+        .cert-heading {
+            text-align: center;
+            margin: 8px 0 4px 0;
+        }
+
+        .cert-heading .cert-main-title {
+            font-family: 'Amiri', serif;
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+            text-shadow: 0 0 18px rgba(212, 175, 55, 0.35);
+        }
+
+        .cert-heading .cert-subtitle {
+            font-size: 0.95rem;
+            color: #b9c6d6;
+            margin-top: 6px;
+        }
+
+        .cert-body {
+            text-align: center;
+            margin: 22px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cert-body .cert-intro-line {
+            font-size: 1rem;
+            color: #c8d3e0;
+        }
+
+        .cert-student-name {
+            font-family: 'Amiri', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin: 14px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.5);
+            display: inline-block;
+            min-width: 60%;
+        }
+
+        .cert-body .cert-course-line {
+            font-size: 1rem;
+            color: #c8d3e0;
+            line-height: 1.9;
+        }
+
+        .cert-course-line b {
+            color: #ffffff;
+        }
+
+        .cert-score-row {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin: 18px 0 6px 0;
+            flex-wrap: wrap;
+        }
+
+        .cert-score-pill {
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .cert-bottom-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 34px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cert-signature {
+            text-align: center;
+        }
+
+        .cert-signature .sig-line {
+            width: 160px;
+            border-top: 1.5px solid #8ea2ba;
+            margin-bottom: 6px;
+        }
+
+        .cert-signature .sig-name {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .cert-signature .sig-role {
+            font-size: 0.7rem;
+            color: #9fb0c3;
+        }
+
+        .cert-seal {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 3px double var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 0.65rem;
+            font-weight: bold;
+            color: var(--gold);
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.12), transparent 70%);
+            line-height: 1.3;
+            transform: rotate(-8deg);
+        }
+
+        .cert-date {
+            text-align: center;
+        }
+
+        .cert-date .date-label {
+            font-size: 0.7rem;
+            color: #9fb0c3;
+        }
+
+        .cert-date .date-value {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #ffffff;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .not-passed-box {
+            text-align: center;
+            border: 2px dashed var(--danger-color);
+            border-radius: 12px;
+            padding: 30px 20px;
+            background-color: rgba(248, 81, 73, 0.06);
+        }
+
+        .not-passed-box h3 {
+            color: var(--danger-color);
+            font-size: 1.4rem;
+            margin-top: 0;
+        }
+
+        @media (max-width: 640px) {
+            .cert-body .cert-student-name {
+                font-size: 1.7rem;
+            }
+
+            .cert-heading .cert-main-title {
+                font-size: 1.5rem;
+            }
+
+            .cert-bottom-row {
+                flex-direction: column;
+                align-items: center;
+                gap: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="timer-box" id="timer-box" style="display: none;">الوقت المتبقي: <span id="timer-display">90:00</span>
+    </div>
+
+    <header>
+        <img src="https://h.top4top.io/p_3841l3kdp1.png" alt="لوجو أكاديمية مستر روبوت" class="logo">
+        <h1>أكاديمية مستر روبوت</h1>
+        <p>مهندس / أندرو مجدي</p>
+        <a href="https://youtube.com/@mrrobotacademy?si=OnsqGekQOfPy-_QL" target="_blank" class="btn btn-youtube">قناة
+            اليوتيوب الرسمية</a>
+    </header>
+
+    <div class="container">
+
+        <section id="quiz-setup" class="card">
+            <h2>📝 اختبار الذكاء الاصطناعي وأساسيات البرمجة (100 سؤال)</h2>
+            <p>اختبار شامل من 100 سؤال يغطي بايثون، جافا سكريبت، ومفاهيم الذكاء الاصطناعي. نسبة النجاح المطلوبة
+                للحصول على الشهادة هي <b>60%</b> فأكثر. اكتب اسمك بالكامل بالظبط زي ما عايزه يظهر على الشهادة.</p>
+            <div class="input-group">
+                <label for="student-name-input">اسم الطالب / الطالبة (كما سيظهر على الشهادة):</label>
+                <input type="text" id="student-name-input" placeholder="اكتب اسمك الثلاثي هنا...">
+            </div>
+            <button class="btn" style="width: 100%; margin: 10px 0;" onclick="startQuiz()">ابدأ الاختبار التفاعلي الآن
+                🚀</button>
+        </section>
+
+        <section id="quiz-container" class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h2 id="question-title">السؤال الحالي:</h2>
+                <span class="badge" id="quiz-progress">السؤال 1 من 100</span>
+            </div>
+            <div class="progress-bar-outer">
+                <div class="progress-bar-inner" id="progress-bar-inner"></div>
+            </div>
+
+            <div id="dynamic-quiz-area"></div>
+
+            <div id="feedback-area"></div>
+
+            <div class="nav-controls">
+                <button class="btn" id="prev-quiz-btn" onclick="navigateQuiz(-1)">السابق</button>
+                <button class="btn btn-check" id="check-ans-btn" onclick="checkCurrentAnswer()">التحقق من الإجابة
+                    🔍</button>
+                <button class="btn" id="next-quiz-btn" onclick="navigateQuiz(1)">التالي</button>
+            </div>
+
+            <button type="button" class="btn"
+                style="background-color: var(--success-color); width: 100%; margin-top: 25px;"
+                onclick="submitQuiz()">تأكيد إنهاء الاختبار بالكامل وإرسال الإجابات ✔</button>
+        </section>
+
+        <section id="result-container" class="card">
+            <h2>🎉 نتيجة الاختبار النهائية</h2>
+            <p id="score-summary"></p>
+
+            <div id="pass-block" style="display:none;">
+                <!-- ده المكان اللي بيظهر فيه تصميم الشهادة النهائى بعد ما الطالب ينجح -->
+                <div class="certificate-wrapper">
+                    <div class="certificate-box" id="certificate">
+                        <!-- هنا بنبدأ أعلى الشهادة: اللوجو، اسم الأكاديمية، ورقم الشهادة -->
+                        <div class="cert-top-row">
+                            <img class="cert-logo" src="https://h.top4top.io/p_3841l3kdp1.png" alt="لوجو الأكاديمية">
+                            <div class="cert-academy-name">
+                                <div class="cert-academy-title">أكاديمية مستر روبوت</div>
+                                <div class="cert-academy-sub">Mr. Robot Academy — للبرمجة والذكاء الاصطناعي</div>
+                            </div>
+                            <div class="cert-serial">
+                                No: <span id="cert-serial-num">MRA-000000</span>
+                            </div>
+                        </div>
+
+                        <div class="cert-divider"></div>
+
+                        <div class="cert-heading">
+                            <div class="cert-main-title">شهادة اجتياز اختبار</div>
+                            <div class="cert-subtitle">Certificate of Achievement</div>
+                        </div>
+
+                        <div class="cert-body">
+                            <div class="cert-intro-line">تشهد أكاديمية مستر روبوت بأن الطالب/الطالبة</div>
+                            <div class="cert-student-name" id="cert-name">طالب أكاديمية مستر روبوت</div>
+                            <div class="cert-course-line">
+                                قد اجتاز/اجتازت بنجاح اختبار<br>
+                                <b>الذكاء الاصطناعي وأساسيات البرمجة (بايثون وجافا سكريبت)</b><br>
+                                المكوّن من 100 سؤال، وحقق/حققت نسبة نجاح تؤهله/تؤهلها لاعتماد هذه الشهادة رسمياً.
+                            </div>
+                            <div class="cert-score-row">
+                                <span class="cert-score-pill" id="cert-score">نسبة النجاح: 100%</span>
+                                <span class="cert-score-pill" id="cert-answers-count">الإجابات الصحيحة: 100 من
+                                    100</span>
+                            </div>
+                        </div>
+
+                        <div class="cert-bottom-row">
+                            <div class="cert-signature">
+                                <div class="sig-line"></div>
+                                <div class="sig-name">مهندس / أندرو مجدي</div>
+                                <div class="sig-role">مؤسس الأكاديمية</div>
+                            </div>
+                            <div class="cert-seal">أكاديمية<br>مستر روبوت<br>معتمدة</div>
+                            <div class="cert-date">
+                                <div class="date-label">تاريخ الإصدار</div>
+                                <div class="date-value" id="cert-date">--/--/----</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="btn btn-gold" onclick="downloadCertificatePDF()">تحميل الشهادة PDF 📄</button>
+                    <button class="btn btn-image" onclick="downloadCertificateImage()">تحميل الشهادة كصورة 🖼️</button>
+                    <button class="btn" onclick="printCertificate()">طباعة الشهادة 🖨️</button>
+                    <button class="btn btn-whatsapp" onclick="shareToWhatsApp()">إرسال النتيجة على الواتساب 📱</button>
+                </div>
+            </div>
+
+            <div id="fail-block" style="display:none;">
+                <div class="not-passed-box">
+                    <h3>لسه مش وقتها 💪</h3>
+                    <p>محتاج تحقق نسبة <b>60%</b> على الأقل عشان تستحق شهادة الاجتياز. راجع التلميحات والإجابات
+                        الصحيحة كويس وذاكر تاني، وإنت هتعديها بإذن الله!</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 25px;">
+                <button class="btn" style="background-color: #6e7681;" onclick="location.reload()">إعادة الاختبار
+                    🔄</button>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // --- بيانات اختبار الـ 100 سؤال ---
+        const quizData = [
+            {
+                "q": "ايه ناتج تنفيذ الكود ده؟\nname = \"Ali\"\nprint(name)",
+                "opts": [
+                    "Error",
+                    "name",
+                    "Ali",
+                    "\"Ali\" بعلامات التنصيص"
+                ],
+                "ans": 2,
+                "hint": "الأمر print بيطبع قيمة المتغير مش اسمه."
+            },
+            {
+                "q": "age = input(\"Enter your age: \")\nنوع البيانات اللي بيرجعه أمر input() دايماً هو:",
+                "opts": [
+                    "رقم صحيح (int)",
+                    "رقم عشري (float)",
+                    "Boolean",
+                    "نص (String)"
+                ],
+                "ans": 3,
+                "hint": "حتى لو المستخدم كتب رقم، الـ input بيتعامل معاه كنص لحد ما نحوله."
+            },
+            {
+                "q": "عشان نحول قيمة الـ input لرقم صحيح ونقدر نقارنها بأرقام، بنكتب:",
+                "opts": [
+                    "age = input(\"Enter your age: \")",
+                    "age = int(input(\"Enter your age: \"))",
+                    "age = float(input(\"Enter your age: \")) بس من غير استخدامها",
+                    "age = str(input(\"Enter your age: \"))"
+                ],
+                "ans": 1,
+                "hint": "دالة int() بتحول النص الجاي من input لرقم صحيح."
+            },
+            {
+                "q": "name = input(\"What is your name? \")\nprint(\"Hello\", name)\nلو المستخدم كتب Sara، هيطبع ايه؟",
+                "opts": [
+                    "Error",
+                    "Sara Hello",
+                    "Hello Sara",
+                    "Hello name"
+                ],
+                "ans": 2,
+                "hint": "الفاصلة جوه print بتفصل بين القيم وتضيف مسافة تلقائي."
+            },
+            {
+                "q": "في الأمر print(\"Hello\", name)، الفاصلة بتعمل ايه بالظبط؟",
+                "opts": [
+                    "تدمج النصوص من غير أي مسافة",
+                    "تفصل بين القيم وتضيف مسافة تلقائياً بينهم",
+                    "تسبب خطأ في الكود",
+                    "بتكرر القيمة مرتين"
+                ],
+                "ans": 1,
+                "hint": "جرب تشغيل الكود وشوف الفرق بين الفاصلة وعلامة +."
+            },
+            {
+                "q": "ايه الطريقة الصح لتعريف متغير في بايثون؟",
+                "opts": [
+                    "var name = \"Ali\"",
+                    "name := \"Ali\"",
+                    "name = \"Ali\"",
+                    "let name = \"Ali\""
+                ],
+                "ans": 2,
+                "hint": "بايثون مش محتاجة كلمة let أو var زي جافا سكريبت."
+            },
+            {
+                "q": "age = 20\nif age > 18:\n    print(\"Adult\")\nهيطبع ايه؟",
+                "opts": [
+                    "nothing",
+                    "Error",
+                    "20",
+                    "Adult"
+                ],
+                "ans": 3,
+                "hint": "20 أكبر من 18 فالشرط بيتحقق."
+            },
+            {
+                "q": "age = int(input(...))\nif age >= 18:\n    print(\"You are adult\")\nelse:\n    print(\"You are young\")\nلو المستخدم كتب 15، هيطبع ايه؟",
+                "opts": [
+                    "Error",
+                    "You are young",
+                    "15",
+                    "You are adult"
+                ],
+                "ans": 1,
+                "hint": "15 أصغر من 18 فبنروح لجزء else."
+            },
+            {
+                "q": "if age < 13:\n    print(\"Child\")\nelif age < 18:\n    print(\"Teen\")\nelse:\n    print(\"Adult\")\nلو age = 16، هيطبع ايه؟",
+                "opts": [
+                    "Child",
+                    "Adult",
+                    "Teen",
+                    "16"
+                ],
+                "ans": 2,
+                "hint": "16 مش أصغر من 13 لكنه أصغر من 18، فبيدخل شرط elif."
+            },
+            {
+                "q": "نفس الكود اللي فات، لو age = 10، هيطبع ايه؟",
+                "opts": [
+                    "Teen",
+                    "10",
+                    "Adult",
+                    "Child"
+                ],
+                "ans": 3,
+                "hint": "10 أصغر من 13 فبيدخل أول شرط if."
+            },
+            {
+                "q": "في نظام الصوبة الزراعية:\nif temperature > 30:\n    print(\"تشغيل تبريد المروحة فوراً\")\nelif temperature < 15:\n    print(\"تشغيل نظام التدفئة\")\nلو temperature = 32، هيحصل ايه؟",
+                "opts": [
+                    "هيطبع خطأ",
+                    "هيشغل تبريد المروحة لأن الحرارة مرتفعة",
+                    "هيشغل التدفئة",
+                    "الحالة مستقرة ومفيش أي إجراء"
+                ],
+                "ans": 1,
+                "hint": "32 أكبر من 30 فبيدخل أول شرط if."
+            },
+            {
+                "q": "if soil_moisture < 35:\n    print(\"تشغيل مضخة ري المياه\")\nلو soil_moisture = 25، هيحصل ايه؟",
+                "opts": [
+                    "هيوقف كل الأنظمة",
+                    "مفيش أي إجراء لأن التربة رطبة",
+                    "هيطبع رسالة خطأ",
+                    "هتشتغل مضخة الري لأن التربة جافة"
+                ],
+                "ans": 3,
+                "hint": "25 أصغر من 35 يبقى التربة جافة والشرط بيتحقق."
+            },
+            {
+                "q": "if username == \"ahmed\" and password == \"superSecretPassword\":\n    print(\"تم تسجيل الدخول بنجاح\")\nعشان الرسالة دي تطبع، لازم:",
+                "opts": [
+                    "مش محتاجين أي شرط",
+                    "لازم يكونوا غلط الاتنين",
+                    "اسم المستخدم وكلمة المرور يكونوا صح مع بعض في نفس الوقت",
+                    "يكفي واحد منهم بس يكون صح"
+                ],
+                "ans": 2,
+                "hint": "and بتطلب إن الشرطين يكونوا صح مع بعض."
+            },
+            {
+                "q": "is_student = False\nage = 65\nif is_student == True or age >= 60:\n    print(\"مؤهل للخصم\")\nهل هيطبع الرسالة؟ ليه؟",
+                "opts": [
+                    "لأ، لأن is_student تساوي False",
+                    "مش هيطبع أي حاجة",
+                    "أيوه، لأن العمر 65 وده كافي يحقق شرط or",
+                    "لأ، لازم الشرطين يكونوا صح"
+                ],
+                "ans": 2,
+                "hint": "or بتكتفي بشرط واحد بس يكون صح."
+            },
+            {
+                "q": "ايه الفرق الأساسي بين and و or في الشروط؟",
+                "opts": [
+                    "and و or بيعملوا نفس الحاجة بالظبط",
+                    "and بتكتفي بشرط واحد",
+                    "or بتطلب الشرطين صح",
+                    "and محتاجة الشرطين يكونوا صح، أما or يكفيها شرط واحد صح"
+                ],
+                "ans": 3,
+                "hint": "فكر في and كـ 'لازم الاتنين'، و or كـ 'يكفي واحد'."
+            },
+            {
+                "q": "grades = [70, 80, 90, 60, 75]\ntotal = 0\nfor grade in grades:\n    total += grade\nمتغير total في الآخر هيحتوي على:",
+                "opts": [
+                    "مجموع كل الدرجات في القائمة",
+                    "أول درجة بس",
+                    "عدد الدرجات",
+                    "أكبر درجة"
+                ],
+                "ans": 0,
+                "hint": "+= بتجمع كل قيمة جديدة على القيمة اللي قبلها."
+            },
+            {
+                "q": "grades = [70, 80, 90, 60, 75]\nقيمة len(grades) هتساوي:",
+                "opts": [
+                    "5",
+                    "375",
+                    "4",
+                    "70"
+                ],
+                "ans": 0,
+                "hint": "len() بترجع عدد العناصر في القائمة."
+            },
+            {
+                "q": "grades = []\nfor i in range(3):\n    grade = int(input(...))\n    grades.append(grade)\nالحلقة دي هتتكرر كام مرة؟",
+                "opts": [
+                    "لا نهائي",
+                    "3 مرات",
+                    "مرة واحدة",
+                    "مرتين"
+                ],
+                "ans": 1,
+                "hint": "range(3) بتولد 0 و1 و2، يعني 3 مرات."
+            },
+            {
+                "q": "grades = [70, 80, 90, 60, 75]\nprint(\"Max:\", max(grades))\nهيطبع ايه؟",
+                "opts": [
+                    "Max: 70",
+                    "Max: 90",
+                    "Max: 375",
+                    "Max: 60"
+                ],
+                "ans": 1,
+                "hint": "دالة max() بترجع أكبر قيمة في القائمة."
+            },
+            {
+                "q": "نفس القائمة، print(\"Min:\", min(grades)) هيطبع ايه؟",
+                "opts": [
+                    "Min: 0",
+                    "Min: 90",
+                    "Min: 70",
+                    "Min: 60"
+                ],
+                "ans": 3,
+                "hint": "دالة min() بترجع أصغر قيمة في القائمة."
+            },
+            {
+                "q": "for i in range(1, 6):\n    if i % 2 == 0:\n        print(\"رقم زوجي:\", i)\nهيطبع الأرقام دي:",
+                "opts": [
+                    "2 و 4",
+                    "1 و 2 و 3 و 4 و 5",
+                    "1 و 3 و 5",
+                    "5 بس"
+                ],
+                "ans": 0,
+                "hint": "% 2 == 0 معناها الرقم بيتقسم على 2 من غير باقي، يعني زوجي."
+            },
+            {
+                "q": "for attempt in range(1, 4):\n    ...\n    if attempt == 3:\n        print(\"تم قفل الحساب\")\nإمتى هتظهر رسالة قفل الحساب؟",
+                "opts": [
+                    "في كل محاولة",
+                    "في المحاولة الثالثة بس",
+                    "مش هتظهر أبداً",
+                    "في المحاولة الأولى"
+                ],
+                "ans": 1,
+                "hint": "الشرط بيتحقق لما قيمة attempt تساوي 3 بالظبط."
+            },
+            {
+                "q": "for battery in range(95, 101):\n    print(\"نسبة الشحن:\", battery)\nكام قيمة هيطبعها الكود ده؟",
+                "opts": [
+                    "قيمة واحدة بس",
+                    "5 قيم",
+                    "100 قيمة",
+                    "6 قيم (من 95 لحد 100)"
+                ],
+                "ans": 3,
+                "hint": "range(95, 101) بتشمل 95 وبتوقف قبل 101، يعني آخر رقم هو 100."
+            },
+            {
+                "q": "toys = [\"car\", \"ball\"]\ntoys.append(\"plane\")\nprint(toys)\nهيطبع ايه؟",
+                "opts": [
+                    "[\"car\", \"ball\"]",
+                    "[\"car\", \"ball\", \"plane\"]",
+                    "Error",
+                    "[\"plane\", \"car\", \"ball\"]"
+                ],
+                "ans": 1,
+                "hint": "append() بتضيف العنصر في آخر القائمة."
+            },
+            {
+                "q": "toys = [\"car\", \"ball\"]\ntoys.insert(0, \"train\")\nprint(toys)\nهيطبع ايه؟",
+                "opts": [
+                    "[\"train\", \"ball\"]",
+                    "[\"train\", \"car\", \"ball\"]",
+                    "[\"car\", \"ball\", \"train\"]",
+                    "Error"
+                ],
+                "ans": 1,
+                "hint": "insert(0, ...) بتحط العنصر في أول القائمة بالظبط."
+            },
+            {
+                "q": "toys = [\"car\", \"ball\", \"plane\"]\ntoys.remove(\"ball\")\nprint(toys)\nهيطبع ايه؟",
+                "opts": [
+                    "Error",
+                    "[\"car\", \"ball\"]",
+                    "[\"ball\", \"plane\"]",
+                    "[\"car\", \"plane\"]"
+                ],
+                "ans": 3,
+                "hint": "remove() بتشيل العنصر المحدد بالاسم من القائمة."
+            },
+            {
+                "q": "toys = [\"car\", \"ball\", \"plane\"]\nlast_toy = toys.pop()\nprint(last_toy)\nهيطبع ايه؟",
+                "opts": [
+                    "plane",
+                    "car",
+                    "None",
+                    "ball"
+                ],
+                "ans": 0,
+                "hint": "pop() من غير رقم بترجع آخر عنصر في القائمة وتشيله."
+            },
+            {
+                "q": "بعد تنفيذ toys.pop() في السؤال اللي فات، لو عملنا print(toys) هيطبع ايه؟",
+                "opts": [
+                    "[\"car\", \"ball\"]",
+                    "[\"car\", \"ball\", \"plane\"]",
+                    "[\"plane\"]",
+                    "[]"
+                ],
+                "ans": 0,
+                "hint": "pop() بتشيل آخر عنصر فعلياً من القائمة الأصلية."
+            },
+            {
+                "q": "toys = [\"plane\", \"car\", \"ball\"]\ntoys.sort()\nprint(toys)\nهيطبع ايه؟",
+                "opts": [
+                    "[\"car\", \"ball\", \"plane\"]",
+                    "[\"plane\", \"car\", \"ball\"]",
+                    "Error",
+                    "[\"ball\", \"car\", \"plane\"]"
+                ],
+                "ans": 3,
+                "hint": "sort() بترتب العناصر أبجدياً تصاعدياً."
+            },
+            {
+                "q": "أي دالة من دوال القوائم بتشيل آخر عنصر وترجعه في نفس الوقت؟",
+                "opts": [
+                    "remove()",
+                    "pop()",
+                    "append()",
+                    "insert()"
+                ],
+                "ans": 1,
+                "hint": "pop بترجع القيمة اللي شالتها، عكس remove اللي محتاجة اسم العنصر."
+            },
+            {
+                "q": "def say_hello(name):\n    print(\"Welcome to Python, \" + name + \"! 🚀\")\nsay_hello(\"Ahmed\")\nهيطبع ايه؟",
+                "opts": [
+                    "Error",
+                    "Welcome to Python, name! 🚀",
+                    "Ahmed",
+                    "Welcome to Python, Ahmed! 🚀"
+                ],
+                "ans": 3,
+                "hint": "الدالة بتستبدل name بالقيمة اللي بعتناها وهي Ahmed."
+            },
+            {
+                "q": "أي كلمة بنستخدمها عشان نبدأ تعريف دالة في بايثون؟",
+                "opts": [
+                    "def",
+                    "func",
+                    "function",
+                    "define"
+                ],
+                "ans": 0,
+                "hint": "def هي الكلمة المفتاحية لتعريف أي دالة في بايثون."
+            },
+            {
+                "q": "def double_power(power):\n    super_power = power * 2\n    print(\"Your Super Power is:\", super_power)\ndouble_power(10)\nهيطبع ايه؟",
+                "opts": [
+                    "Error",
+                    "Your Super Power is: 10",
+                    "Your Super Power is: 20",
+                    "Your Super Power is: 100"
+                ],
+                "ans": 2,
+                "hint": "power * 2 يعني 10 * 2 = 20."
+            },
+            {
+                "q": "def check_pass(name, degree):\n    if degree >= 50:\n        print(name, \"Pass\")\n    else:\n        print(name, \"Fail\")\ncheck_pass(\"Ali\", 45)\nهيطبع ايه؟",
+                "opts": [
+                    "Ali Pass",
+                    "Error",
+                    "Ali Fail",
+                    "45 Fail"
+                ],
+                "ans": 2,
+                "hint": "45 أصغر من 50 فبيدخل جزء else."
+            },
+            {
+                "q": "ايه وظيفة كلمة return جوه الدالة؟",
+                "opts": [
+                    "بتوقف البرنامج كله فوراً",
+                    "بتطبع القيمة على الشاشة بس",
+                    "بترجع قيمة من الدالة عشان نستخدمها خارجها",
+                    "مالهاش أي وظيفة"
+                ],
+                "ans": 2,
+                "hint": "return مختلفة عن print، لأنها بترجع القيمة للكود اللي نادى الدالة."
+            },
+            {
+                "q": "check_pass(name, degree) - هل ممكن الدالة تاخد أكتر من parameter؟",
+                "opts": [
+                    "لأ، الدالة بتاخد parameter واحد بس دايماً",
+                    "لأ، ده هيسبب خطأ في بايثون",
+                    "أيوه، وبنفصل بينهم بفاصلة جوه الأقواس",
+                    "أيوه بس لازم تكون كلها أرقام"
+                ],
+                "ans": 2,
+                "hint": "زي ما شفنا في check_pass(name, degree) اتنين parameters مفصولين بفاصلة."
+            },
+            {
+                "q": "لما بنكتب say_hello(\"Ahmed\")، كلمة \"Ahmed\" هنا بنسميها ايه؟",
+                "opts": [
+                    "Argument (وسيط)",
+                    "Function",
+                    "Parameter بس من غير قيمة",
+                    "Return value"
+                ],
+                "ans": 0,
+                "hint": "الـ parameter هو الاسم جوه تعريف الدالة، والـ argument هو القيمة اللي بنبعتها فعلياً."
+            },
+            {
+                "q": "متى الأفضل نستخدم Dictionary بدل List؟",
+                "opts": [
+                    "الاتنين بيعملوا نفس الحاجة بالظبط",
+                    "لما عايزين بس مجموعة أسماء وراء بعض",
+                    "لما مش عايزين نخزن أي بيانات",
+                    "لما كل عنصر مرتبط بمعلومة خاصة بيه (زي المنتج وسعره)"
+                ],
+                "ans": 3,
+                "hint": "الـ Dictionary بيربط كل مفتاح (Key) بقيمة (Value) خاصة بيه."
+            },
+            {
+                "q": "menu = {\"شيبسي\": 10, \"بيبسي\": 15}\nfor item, price in menu.items():\n    print(item, price)\nدالة .items() بترجع ايه؟",
+                "opts": [
+                    "كل مفتاح مع قيمته مع بعض",
+                    "المفاتيح بس من غير القيم",
+                    "القيم بس من غير المفاتيح",
+                    "عدد العناصر في القاموس"
+                ],
+                "ans": 0,
+                "hint": ".items() بترجع أزواج (key, value) عشان نقدر نلف عليهم مع بعض."
+            },
+            {
+                "q": "students_dict = {}\nstudents_dict[name] = grade\nالسطر ده بيعمل ايه؟",
+                "opts": [
+                    "بيضيف اسم الطالب كمفتاح ودرجته كقيمة جوه القاموس",
+                    "بيطبع اسم الطالب على الشاشة",
+                    "بيحول القاموس لقائمة",
+                    "بيمسح القاموس بالكامل"
+                ],
+                "ans": 0,
+                "hint": "بنستخدم [ ] عشان نضيف أو نعدل عنصر في القاموس بمفتاحه."
+            },
+            {
+                "q": "shopping_list = [\"شيبسي\", \"بيبسي\", \"شوكولاتة\"]\nده متغير من نوع:",
+                "opts": [
+                    "List (قائمة)",
+                    "Function (دالة)",
+                    "Dictionary (قاموس)",
+                    "String (نص)"
+                ],
+                "ans": 0,
+                "hint": "القيم دي متتالية من غير مفاتيح مرتبطة بيها، يبقى List."
+            },
+            {
+                "q": "menu = {\"شيبسي\": 10, \"بيبسي\": 15}\nده متغير من نوع:",
+                "opts": [
+                    "Integer (رقم)",
+                    "Function (دالة)",
+                    "Dictionary (قاموس)",
+                    "List (قائمة)"
+                ],
+                "ans": 2,
+                "hint": "كل قيمة هنا مرتبطة بمفتاح، وده تعريف الـ Dictionary."
+            },
+            {
+                "q": "عشان نلف على كل مفتاح وقيمته في قاموس صح، بنكتب:",
+                "opts": [
+                    "for value in my_dict:",
+                    "for my_dict in key, value:",
+                    "for key, value in my_dict.items():",
+                    "for key in my_dict.values():"
+                ],
+                "ans": 2,
+                "hint": "لازم نستخدم .items() عشان ناخد المفتاح والقيمة سوا."
+            },
+            {
+                "q": "with open(\"test.txt\", \"w\", encoding=\"utf-8\") as file:\n    file.write(\"أهلاً بكم\")\nحرف \"w\" هنا معناه:",
+                "opts": [
+                    "Wait - انتظار",
+                    "Warning - تحذير",
+                    "Write - كتابة (بتنشئ الملف أو تستبدل محتواه)",
+                    "Read - قراءة"
+                ],
+                "ans": 2,
+                "hint": "w اختصار Write، وبتفتح الملف عشان نكتب فيه."
+            },
+            {
+                "q": "with open(\"test.txt\", \"r\", encoding=\"utf-8\") as file:\n    content = file.read()\nحرف \"r\" هنا معناه:",
+                "opts": [
+                    "Read - قراءة",
+                    "Run - تشغيل",
+                    "Rewrite - إعادة كتابة",
+                    "Remove - حذف"
+                ],
+                "ans": 0,
+                "hint": "r اختصار Read، وبتفتح الملف عشان نقرأ محتواه بس."
+            },
+            {
+                "q": "file.write(f\"{name}:{grade}\\n\")\nرمز \\n في آخر السطر بيعمل ايه؟",
+                "opts": [
+                    "بيضيف مسافة واحدة بس",
+                    "بيمسح المحتوى اللي فات",
+                    "مالوش أي تأثير",
+                    "بينقل الكتابة لسطر جديد في الملف"
+                ],
+                "ans": 3,
+                "hint": "\\n هو رمز الانتقال لسطر جديد في أغلب لغات البرمجة."
+            },
+            {
+                "q": "ليه بنستخدم with open(...) as file: بدل ما نكتب open(...) عادي؟",
+                "opts": [
+                    "عشان يضمن غلق الملف تلقائياً بعد الانتهاء من الكتابة أو القراءة",
+                    "عشان يخلي الكود أبطأ",
+                    "عشان يمنعنا من الكتابة في الملف",
+                    "مفيش أي فايدة، بس شكل الكود أحلى"
+                ],
+                "ans": 0,
+                "hint": "with بتتكفل بغلق الملف تلقائياً حتى لو حصل خطأ في الكود."
+            },
+            {
+                "q": "def predict_score(hours):\n    return hours * 10 + 20\nالمثال ده بيوضح ايه؟",
+                "opts": [
+                    "الكمبيوتر بيخمن الإجابة عشوائياً",
+                    "إحنا اللي كتبنا القاعدة بنفسنا، مش الكمبيوتر اللي اتعلمها",
+                    "ده مثال على الذكاء الاصطناعي الحقيقي",
+                    "الكمبيوتر اتعلم القاعدة من البيانات لوحده"
+                ],
+                "ans": 1,
+                "hint": "الفرق الأساسي بين برمجة تقليدية وتعلم آلة هو مين اللي مستنتج القاعدة."
+            },
+            {
+                "q": "model = LinearRegression()\nmodel.fit(X, y)\nدالة .fit() بتعمل ايه؟",
+                "opts": [
+                    "بتعلم النموذج (Model) من البيانات، ودي مرحلة الـ Training",
+                    "بتحذف البيانات القديمة",
+                    "بترسم جراف للبيانات",
+                    "بتطبع نتيجة نهائية على الشاشة"
+                ],
+                "ans": 0,
+                "hint": "fit تعني 'يتدرب على' - هي خطوة تعليم النموذج."
+            },
+            {
+                "q": "model.predict([[6]])\nدالة .predict() بتعمل ايه؟",
+                "opts": [
+                    "بتتوقع قيمة جديدة بناءً على اللي اتعلمه النموذج من قبل",
+                    "بتمسح النموذج بالكامل",
+                    "بتدرب النموذج من الأول",
+                    "بترجع نفس البيانات اللي دخلت بيها"
+                ],
+                "ans": 0,
+                "hint": "predict بتيجي بعد التدريب، وبتستخدم اللي اتعلمناه للتنبؤ بحاجة جديدة."
+            },
+            {
+                "q": "data = pd.DataFrame({\"المساحة\": [...], \"السعر\": [...]})\nX = data[[\"المساحة\"]]\nفي مثال توقع سعر البيت، ايه هو X (المدخل)؟",
+                "opts": [
+                    "عدد الغرف",
+                    "اسم الطالب",
+                    "السعر (price)",
+                    "المساحة (area)"
+                ],
+                "ans": 3,
+                "hint": "X دايماً بيمثل المدخلات اللي بنستخدمها عشان نتوقع منها."
+            },
+            {
+                "q": "y = data[\"السعر\"]\nفي نفس المثال، ايه هو y (المخرج)؟",
+                "opts": [
+                    "المساحة (area)",
+                    "عدد الصور",
+                    "اسم النموذج",
+                    "السعر (price)"
+                ],
+                "ans": 3,
+                "hint": "y دايماً بيمثل الناتج أو القيمة اللي عايزين نتوقعها."
+            },
+            {
+                "q": "DecisionTreeClassifier بيتوقع لو الطالب هينجح ولا هيرسب (0 أو 1). النوع ده من المشاكل اسمه:",
+                "opts": [
+                    "Clustering (تجميع)",
+                    "Classification (تصنيف)",
+                    "Sorting (ترتيب)",
+                    "Regression (انحدار)"
+                ],
+                "ans": 1,
+                "hint": "لما النتيجة تكون فئة محددة (نجاح/رسوب) بنسميها Classification."
+            },
+            {
+                "q": "LinearRegression بيتوقع درجة الطالب كرقم (زي 65 أو 72). النوع ده من المشاكل اسمه:",
+                "opts": [
+                    "Clustering (تجميع)",
+                    "Encoding (ترميز)",
+                    "Classification (تصنيف)",
+                    "Regression (انحدار/توقع رقم)"
+                ],
+                "ans": 3,
+                "hint": "لما النتيجة تكون رقم مستمر (مش فئة محددة) بنسميها Regression."
+            },
+            {
+                "q": "ايه الفرق الأساسي بين Regression و Classification؟",
+                "opts": [
+                    "مفيش أي فرق بينهم",
+                    "Classification بيتوقع رقم دايماً",
+                    "Regression بيتوقع فئة دايماً",
+                    "Regression بيتوقع رقم، أما Classification بيتوقع فئة أو تصنيف"
+                ],
+                "ans": 3,
+                "hint": "فكر في السعر (رقم) مقابل نجاح/رسوب (فئة)."
+            },
+            {
+                "q": "قبل التدريب، هل الكمبيوتر (النموذج) بيعرف أي حاجة عن القطط والكلاب؟",
+                "opts": [
+                    "بيعرف نص المعلومات بس",
+                    "بيعرف الشكل بس مش اللون",
+                    "أيوه، بيعرف كل حاجة من غير تدريب",
+                    "لأ، بالظبط زي طفل عمره سنتين لسه ما شافش قطة قبل كده"
+                ],
+                "ans": 3,
+                "hint": "قبل أي تدريب، النموذج بيبدأ من الصفر تماماً."
+            },
+            {
+                "q": "ايه هي الـ Weights (الأوزان) حسب الشرح؟",
+                "opts": [
+                    "عدد الصور المستخدمة في التدريب",
+                    "أسماء الصور اللي بندرب عليها النموذج",
+                    "لون الخلفية في الصورة",
+                    "الأرقام الداخلية اللي بيعدلها الكمبيوتر أثناء التعلم عشان يقلل الأخطاء"
+                ],
+                "ans": 3,
+                "hint": "تخيلها زي مفاتيح صغيرة بيظبطها الكمبيوتر كل ما يشوف مثال جديد."
+            },
+            {
+                "q": "أثناء التدريب، لما النموذج يخطئ في التوقع، بيحصل ايه بعد كده؟",
+                "opts": [
+                    "بيقارن توقعه بالحقيقة ثم يعدل الأوزان شوية ويجرب تاني",
+                    "مفيش أي تغيير في الأوزان",
+                    "بيمسح كل البيانات ويبدأ من صفر",
+                    "بيوقف التدريب فوراً"
+                ],
+                "ans": 0,
+                "hint": "التعلم عملية تكرارية: توقع → مقارنة → تعديل → تجربة تانية."
+            },
+            {
+                "q": "ليه النموذج محتاج صور كتير عشان يتعلم (مش صورة واحدة بس)؟",
+                "opts": [
+                    "عشان يتعلم الصفات المشتركة العامة، مش يحفظ صورة واحدة بس، فيقدر يعمم على حالات جديدة",
+                    "عشان يبطئ عملية التدريب",
+                    "مفيش سبب حقيقي، بس تقليد",
+                    "عشان يستهلك مساحة أكبر بس"
+                ],
+                "ans": 0,
+                "hint": "كل ما الأمثلة أكتر، كل ما النموذج بيفهم الفرق بشكل أعم وأدق."
+            },
+            {
+                "q": "academy_data = {\"Student_Name\": [...], \"Score\": [...]}\ndf = pd.DataFrame(academy_data)\nالسطر ده بيعمل ايه؟",
+                "opts": [
+                    "بيمسح كل البيانات",
+                    "بيرسم جراف مباشرة",
+                    "بيحول الـ Dictionary لجدول منظم (DataFrame)",
+                    "بيحول الجدول لقاموس"
+                ],
+                "ans": 2,
+                "hint": "pd.DataFrame() هي الطريقة الأساسية لتحويل بيانات لجدول في Pandas."
+            },
+            {
+                "q": "df.loc[len(df)] = [\"Nour\", \"Python\", 88, 90]\nالسطر ده بيعمل ايه؟",
+                "opts": [
+                    "بيضيف صف (طالب) جديد في آخر الجدول",
+                    "بيغير اسم العمود الأول",
+                    "بيحذف آخر صف في الجدول",
+                    "بيرتب الجدول أبجدياً"
+                ],
+                "ans": 0,
+                "hint": "len(df) بيدينا رقم أول صف فاضي في آخر الجدول عشان نضيف بيانات جديدة فيه."
+            },
+            {
+                "q": "df_cleaned = df.drop(columns=[\"Course\"])\nالسطر ده بيعمل ايه؟",
+                "opts": [
+                    "بيضيف عمود جديد اسمه Course",
+                    "بيحذف عمود الكورس بالكامل من الجدول",
+                    "بيحذف كل الصفوف اللي فيها Course فاضي",
+                    "بيعدل قيم عمود Course فقط"
+                ],
+                "ans": 1,
+                "hint": "drop(columns=[...]) بتشيل عمود كامل من الجدول."
+            },
+            {
+                "q": "df.loc[6, \"Score\"] = None\ndf_filled = df.fillna(0)\nدالة fillna(0) بتعمل ايه؟",
+                "opts": [
+                    "بتحول كل الجدول لأصفار",
+                    "بترجع خطأ لو فيه قيمة فاضية",
+                    "بتستبدل أي خانة فاضية (None) بالرقم 0 تلقائياً",
+                    "بتحذف الصفوف اللي فيها قيم فاضية"
+                ],
+                "ans": 2,
+                "hint": "fillna بتملأ القيم الفاضية بقيمة محددة بنختارها إحنا."
+            },
+            {
+                "q": "df.describe()\nالأمر ده بيطلعلنا ايه؟",
+                "opts": [
+                    "رسمة بيانية للجدول",
+                    "إحصائيات سريعة زي المتوسط وأعلى وأقل قيمة للأعمدة الرقمية",
+                    "نسخة منسوخة من الجدول",
+                    "أسماء الأعمدة بس"
+                ],
+                "ans": 1,
+                "hint": "describe() ملخص إحصائي سريع للأعمدة الرقمية في الجدول."
+            },
+            {
+                "q": "passed_students = df[df[\"Score\"] >= 50]\nالسطر ده بيعمل ايه؟",
+                "opts": [
+                    "بيرتب الجدول تصاعدياً حسب الدرجة",
+                    "بيحذف الطلاب اللي درجتهم أقل من 50",
+                    "بيضيف عمود جديد اسمه Passed",
+                    "بيفلتر الجدول ويستخرج الطلاب اللي درجتهم 50 أو أكتر بس"
+                ],
+                "ans": 3,
+                "hint": "الشرط جوه [ ] بيرجع بس الصفوف اللي بتحقق الشرط ده."
+            },
+            {
+                "q": "low_attendance = df[df[\"Attendance_pct\"] < 75]\nالسطر ده بيستخرج ايه؟",
+                "opts": [
+                    "متوسط نسبة الحضور لكل الطلاب",
+                    "الطلاب اللي نسبة حضورهم أقل من 75%",
+                    "كل الطلاب من غير فلترة",
+                    "الطلاب اللي نسبة حضورهم 75% أو أكتر"
+                ],
+                "ans": 1,
+                "hint": "نفس فكرة الفلترة، لكن بشرط مختلف على عمود الحضور."
+            },
+            {
+                "q": "df.plot(x=\"Student_Name\", y=\"Score\", kind=\"bar\", ...)\nده بيرسم نوع رسمة اسمه:",
+                "opts": [
+                    "رسم بياني دائري (Pie chart)",
+                    "رسم بياني بالأعمدة (Bar chart)",
+                    "خريطة حرارية (Heatmap)",
+                    "رسم بياني خطي (Line chart)"
+                ],
+                "ans": 1,
+                "hint": "kind=\"bar\" معناها إن الرسمة هتكون أعمدة."
+            },
+            {
+                "q": "df.style.background_gradient(cmap=\"Reds\", subset=[\"Score\"])\nالسطر ده بيعمل ايه؟",
+                "opts": [
+                    "بيلون خلايا عمود الدرجات بتدرج لوني، غامق للدرجات العالية وفاتح للمنخفضة",
+                    "بيحذف عمود الدرجات نهائياً",
+                    "بيرسم جراف منفصل خارج الجدول",
+                    "بيحول الدرجات لنسب مئوية"
+                ],
+                "ans": 0,
+                "hint": "background_gradient بتضيف تلوين تلقائي حسب قيمة كل خلية."
+            },
+            {
+                "q": "fig = px.bar(df, x=..., y=..., color=...)\nfig.show()\nإيه الميزة الأساسية للرسم البياني ده باستخدام plotly.express؟",
+                "opts": [
+                    "بطبعه فقط ورقياً",
+                    "بيكون رسم بياني تفاعلي، المستخدم يقدر يتحكم فيه ويكبر ويصغر",
+                    "متاح لمرة واحدة فقط ثم يختفي",
+                    "بيكون بالأبيض والأسود بس"
+                ],
+                "ans": 1,
+                "hint": "plotly بتنتج رسومات تفاعلية بعكس الرسومات الثابتة العادية."
+            },
+            {
+                "q": "let name = \"Ali\";\nconsole.log(name);\nهيطبع ايه؟",
+                "opts": [
+                    "name",
+                    "Ali",
+                    "Error",
+                    "\"Ali\" بعلامات التنصيص"
+                ],
+                "ans": 1,
+                "hint": "console.log بيطبع قيمة المتغير زي print بالظبط في بايثون."
+            },
+            {
+                "q": "ايه المكافئ لأمر print() في بايثون داخل جافا سكريبت؟",
+                "opts": [
+                    "output()",
+                    "write()",
+                    "console.log()",
+                    "print()"
+                ],
+                "ans": 2,
+                "hint": "console.log() هي أداة الطباعة الأساسية في جافا سكريبت."
+            },
+            {
+                "q": "let name = \"Ali\";\nlet age = 17;\nconsole.log(`My name is ${name} and I am ${age}`);\nرمز ${} جوه backticks بيعمل ايه؟",
+                "opts": [
+                    "بيحول المتغير لنص ثابت",
+                    "بيمسح قيمة المتغير",
+                    "بيدرج قيمة المتغير جوه النص مباشرة",
+                    "بيسبب خطأ في الكود"
+                ],
+                "ans": 2,
+                "hint": "ده اسمه Template Literal، وبيسهل دمج متغيرات جوه نص."
+            },
+            {
+                "q": "بيه أغلب جمل جافا سكريبت (statements) بتتقفل؟",
+                "opts": [
+                    "بنقطتين :",
+                    "بفاصلة منقوطة ;",
+                    "بعلامة استفهام ?",
+                    "من غير أي علامة"
+                ],
+                "ans": 1,
+                "hint": "الفاصلة المنقوطة ; بتحدد نهاية الجملة البرمجية في JS."
+            },
+            {
+                "q": "let age = 17;\nالسطر ده بيمثل طريقة تعريف متغير في:",
+                "opts": [
+                    "لغة HTML",
+                    "بايثون وجافا سكريبت مع بعض",
+                    "بايثون فقط",
+                    "جافا سكريبت فقط باستخدام let"
+                ],
+                "ans": 3,
+                "hint": "بايثون مالهاش let، بنكتب المتغير مباشرة زي age = 17."
+            },
+            {
+                "q": "ايه الكلمة المفتاحية في جافا سكريبت لتعريف متغير ممكن قيمته تتغير بعدين؟",
+                "opts": [
+                    "int",
+                    "const",
+                    "let",
+                    "var فقط"
+                ],
+                "ans": 2,
+                "hint": "let بتعرف متغير قيمته قابلة للتغيير لاحقاً في الكود."
+            },
+            {
+                "q": "let age = 16;\nif (age >= 18) {\n  console.log(\"Adult\");\n} else {\n  console.log(\"Minor\");\n}\nهيطبع ايه؟",
+                "opts": [
+                    "Minor",
+                    "Adult",
+                    "16",
+                    "Error"
+                ],
+                "ans": 0,
+                "hint": "16 أصغر من 18 فبيدخل جزء else."
+            },
+            {
+                "q": "ايه الرمز اللي بيمثل عملية AND (و) في جافا سكريبت؟",
+                "opts": [
+                    "||",
+                    "==",
+                    "&&",
+                    "!"
+                ],
+                "ans": 2,
+                "hint": "&& بترمز لـ AND، بتحتاج الشرطين صح مع بعض."
+            },
+            {
+                "q": "ايه الرمز اللي بيمثل عملية OR (أو) في جافا سكريبت؟",
+                "opts": [
+                    "!",
+                    "&&",
+                    "==",
+                    "||"
+                ],
+                "ans": 3,
+                "hint": "|| بترمز لـ OR، بيكفي شرط واحد بس يكون صح."
+            },
+            {
+                "q": "ايه الرمز اللي بيمثل عملية NOT (النفي) في جافا سكريبت؟",
+                "opts": [
+                    "||",
+                    "!",
+                    "==",
+                    "&&"
+                ],
+                "ans": 1,
+                "hint": "علامة التعجب ! بتعكس قيمة الـ Boolean من true لـ false والعكس."
+            },
+            {
+                "q": "let isOpen = true;\nconsole.log(!isOpen);\nهيطبع ايه؟",
+                "opts": [
+                    "true",
+                    "false",
+                    "isOpen",
+                    "Error"
+                ],
+                "ans": 1,
+                "hint": "! بتعكس القيمة، فـ true بتبقى false."
+            },
+            {
+                "q": "if (hasTicket && !isVip) {\n  console.log(\"Access granted\");\n}\nإمتى بالظبط هيتحقق الشرط ده؟",
+                "opts": [
+                    "لما hasTicket تكون true و isVip تكون false في نفس الوقت",
+                    "لما hasTicket بس تكون true بغض النظر عن isVip",
+                    "لما isVip تكون true",
+                    "الشرط مش هيتحقق أبداً"
+                ],
+                "ans": 0,
+                "hint": "&& بتحتاج الشرطين يكونوا true، وواحد منهم هو نفي isVip."
+            },
+            {
+                "q": "if (!(isAdult || hasParentalConsent)) {\n  console.log(\"Access denied\");\n}\nإمتى بالظبط هيتم رفض الوصول؟",
+                "opts": [
+                    "لما أي واحد فيهم يكون true",
+                    "دايماً هيتم الرفض",
+                    "لما isAdult بس تكون true",
+                    "لما isAdult و hasParentalConsent يكونوا الاتنين false"
+                ],
+                "ans": 3,
+                "hint": "! بره القوس بتعكس نتيجة الـ || كلها، فلازم الشرطين يكونوا false."
+            },
+            {
+                "q": "function min2(num1, num2) {\n  if (num1 < num2) {\n    return num1;\n  } else {\n    return num2;\n  }\n}\nconsole.log(min2(5, 10));\nهيطبع ايه؟",
+                "opts": [
+                    "10",
+                    "5",
+                    "15",
+                    "Error"
+                ],
+                "ans": 1,
+                "hint": "الدالة بترجع القيمة الأصغر بين الاتنين."
+            },
+            {
+                "q": "console.log(Math.round(9.6));\nهيطبع ايه؟",
+                "opts": [
+                    "9.6",
+                    "9",
+                    "10",
+                    "10.0"
+                ],
+                "ans": 2,
+                "hint": "Math.round بيقرب لأقرب رقم صحيح، و9.6 بتتقرب لـ 10."
+            },
+            {
+                "q": "console.log(Math.floor(5.5));\nهيطبع ايه؟",
+                "opts": [
+                    "0",
+                    "6",
+                    "5",
+                    "5.5"
+                ],
+                "ans": 2,
+                "hint": "Math.floor بيرجع الرقم الصحيح الأصغر منه أو المساوي ليه (بيقص الكسور)."
+            },
+            {
+                "q": "console.log(Math.max(5, 10, 50));\nهيطبع ايه؟",
+                "opts": [
+                    "10",
+                    "50",
+                    "5",
+                    "65"
+                ],
+                "ans": 1,
+                "hint": "Math.max بترجع أكبر رقم من بين القيم المعطاة."
+            },
+            {
+                "q": "console.log(Math.min(5, 10, 50));\nهيطبع ايه؟",
+                "opts": [
+                    "0",
+                    "10",
+                    "5",
+                    "50"
+                ],
+                "ans": 2,
+                "hint": "Math.min بترجع أصغر رقم من بين القيم المعطاة."
+            },
+            {
+                "q": "function sum(num1, num2) {\n  let result = num1 + num2;\n  return result;\n}\nconsole.log(sum(50, 100));\nهيطبع ايه؟",
+                "opts": [
+                    "100",
+                    "50",
+                    "5000",
+                    "150"
+                ],
+                "ans": 3,
+                "hint": "الدالة بتجمع الرقمين وترجع الناتج، 50 + 100 = 150."
+            },
+            {
+                "q": "for (let i = 1; i <= 5; i++) {\n  console.log(i);\n}\nالحلقة دي هتتكرر كام مرة؟",
+                "opts": [
+                    "5 مرات",
+                    "مرة واحدة",
+                    "6 مرات",
+                    "4 مرات"
+                ],
+                "ans": 0,
+                "hint": "بتبدأ من 1 وتوقف لما i تبقى أكبر من 5، يعني 1 لحد 5."
+            },
+            {
+                "q": "let fruits = [\"تفاح\", \"موز\", \"برتقال\"];\nconsole.log(fruits[0]);\nهيطبع ايه؟",
+                "opts": [
+                    "موز",
+                    "Error",
+                    "تفاح",
+                    "برتقال"
+                ],
+                "ans": 2,
+                "hint": "الترقيم (Index) في المصفوفات بيبدأ من صفر."
+            },
+            {
+                "q": "let friends = [\"أحمد\", \"عمر\", \"علي\", \"سارة\"];\nconsole.log(friends.length);\nهيطبع ايه؟",
+                "opts": [
+                    "3",
+                    "friends",
+                    "Error",
+                    "4"
+                ],
+                "ans": 3,
+                "hint": "length بترجع عدد العناصر الكلي في المصفوفة."
+            },
+            {
+                "q": "for (let item of shoppingList) { ... }\nطريقة الحلقة دي بتستخدم عشان:",
+                "opts": [
+                    "تحذف كل عناصر المصفوفة",
+                    "تمر على كل عنصر في المصفوفة مباشرة من غير الحاجة لعداد i",
+                    "ترتب المصفوفة تصاعدياً",
+                    "تحسب عدد عناصر المصفوفة فقط"
+                ],
+                "ans": 1,
+                "hint": "for...of بتوديك لقيمة كل عنصر مباشرة، مش لرقمه بس."
+            },
+            {
+                "q": "let grades = [30, 55, 80, 45, 90];\nفي حلقة بتزود success++ لما grades[i] >= 50، كام طالب هيعدوا ناجحين؟",
+                "opts": [
+                    "5 طلاب",
+                    "طالب واحد بس",
+                    "3 طلاب (55، 80، 90)",
+                    "2 طلاب"
+                ],
+                "ans": 2,
+                "hint": "قارن كل درجة بـ 50: 30 و45 بس أقل من 50."
+            },
+            {
+                "q": "ايه اللي بترجعه خاصية array.length؟",
+                "opts": [
+                    "أول عنصر في المصفوفة",
+                    "عدد عناصر المصفوفة",
+                    "نوع بيانات المصفوفة",
+                    "أكبر قيمة في المصفوفة"
+                ],
+                "ans": 1,
+                "hint": "length خاصية بترجع عدد كل العناصر الموجودة في المصفوفة."
+            },
+            {
+                "q": "ايه المكافئ لقيمة true/false في جافا سكريبت داخل بايثون؟",
+                "opts": [
+                    "True / False (بحرف كبير في الأول)",
+                    "Yes / No",
+                    "true / false (بحروف صغيرة)",
+                    "1 / 0 فقط"
+                ],
+                "ans": 0,
+                "hint": "بايثون بتكتب Boolean بحرف كبير في البداية: True و False."
+            },
+            {
+                "q": "ايه المكافئ لكلمة else if في جافا سكريبت داخل بايثون؟",
+                "opts": [
+                    "elseif",
+                    "else:if",
+                    "elif",
+                    "else_if"
+                ],
+                "ans": 2,
+                "hint": "بايثون بتستخدم كلمة واحدة مختصرة elif بدل else if."
+            },
+            {
+                "q": "بايثون بتعتمد على ________ بدل الأقواس المعقوفة {} عشان تحدد أجزاء الكود؟",
+                "opts": [
+                    "المسافات البادئة (Indentation)",
+                    "الفواصل المنقوطة (;)",
+                    "الأقواس العادية ()",
+                    "علامات التنصيص"
+                ],
+                "ans": 0,
+                "hint": "بايثون بتستخدم المسافات في بداية السطر لتحديد الكتلة البرمجية بدل {}."
+            },
+            {
+                "q": "ايه الكلمة في بايثون اللي بتقابل رمز ! (النفي) في جافا سكريبت؟",
+                "opts": [
+                    "elif",
+                    "not",
+                    "or",
+                    "and"
+                ],
+                "ans": 1,
+                "hint": "not بتعكس قيمة الشرط في بايثون زي ! في جافا سكريبت بالظبط."
+            },
+            {
+                "q": "ايه الكلمتين في بايثون اللي بيقابلوا && و || في جافا سكريبت؟",
+                "opts": [
+                    "if و else",
+                    "true و false",
+                    "not و elif",
+                    "and و or"
+                ],
+                "ans": 3,
+                "hint": "and بتقابل &&، و or بتقابل ||."
+            },
+            {
+                "q": "أي لغة من اللغتين بتستخدم الفاصلة المنقوطة ; لإنهاء أغلب الجمل البرمجية؟",
+                "opts": [
+                    "بايثون",
+                    "الاتنين بنفس الطريقة",
+                    "ولا واحدة فيهم",
+                    "جافا سكريبت"
+                ],
+                "ans": 3,
+                "hint": "بايثون عادة مش بتحتاج فاصلة منقوطة في آخر السطر."
+            }
+        ];
+
+        let currentQuizIndex = 0;
+        let studentAnswers = new Array(quizData.length).fill(null);
+        let studentName = "";
+        let quizTimer = null;
+        let timeLeft = 5400; // 90 دقيقة كاملة بالاختبار (100 سؤال)
+
+        function startQuiz() {
+            const nameInput = document.getElementById('student-name-input').value.trim();
+            if (nameInput === "") {
+                alert("برجاء إدخال اسمك ثلاثي لبدء الاختبار واستخراج الشهادة بنجاح! 🚀");
+                return;
+            }
+            studentName = nameInput;
+            document.getElementById('quiz-setup').style.display = 'none';
+            document.getElementById('quiz-container').style.display = 'block';
+            document.getElementById('timer-box').style.display = 'block';
+
+            startTimer();
+            loadQuizQuestion(currentQuizIndex);
+        }
+
+        function startTimer() {
+            quizTimer = setInterval(function () {
+                timeLeft--;
+                let mins = Math.floor(timeLeft / 60);
+                let secs = timeLeft % 60;
+                document.getElementById('timer-display').innerText =
+                    (mins < 10 ? "0" + mins : mins) + ":" + (secs < 10 ? "0" + secs : secs);
+
+                if (timeLeft <= 0) {
+                    clearInterval(quizTimer);
+                    alert("انتهى وقت الاختبار التلقائي! سيتم تجميع وإرسال إجاباتك الحالية فوراً للتقييم.");
+                    submitQuiz();
+                }
+            }, 1000);
+        }
+
+        function loadQuizQuestion(index) {
+            const qData = quizData[index];
+            document.getElementById('quiz-progress').innerText = `السؤال ${index + 1} من ${quizData.length}`;
+            document.getElementById('question-title').innerText = `السؤال الحالي رقم (${index + 1}):`;
+            document.getElementById('progress-bar-inner').style.width = ((index + 1) / quizData.length * 100) + '%';
+
+            let html = `
+                <div class="qcode">${qData.q}</div>
+
+                <div class="interactive-tab">
+                    <div class="interactive-tab-header" onclick="this.parentElement.classList.toggle('active')">💡 اضغط هنا لإظهار تلميحة المهندس أندرو المساعدة للمساعدة في الحل</div>
+                    <div class="interactive-tab-content">${qData.hint}</div>
+                </div>
+
+                <ul class="options-list">
+                    ${qData.opts.map((opt, oIdx) => `
+                        <li class="option-item" id="opt-item-${oIdx}" onclick="selectOption(${oIdx})">
+                            <input type="radio" name="quiz-opt" id="opt-${oIdx}" value="${oIdx}" ${studentAnswers[index] === oIdx ? 'checked' : ''}>
+                            <label for="opt-${oIdx}" style="cursor:pointer; width:100%; display:block;">${opt}</label>
+                        </li>
+                    `).join('')}
+                </ul>
+            `;
+
+            document.getElementById('dynamic-quiz-area').innerHTML = html;
+            document.getElementById('feedback-area').innerHTML = "";
+
+            document.getElementById('prev-quiz-btn').disabled = (index === 0);
+            document.getElementById('next-quiz-btn').disabled = (index === quizData.length - 1);
+        }
+
+        function selectOption(optIdx) {
+            document.getElementById(`opt-${optIdx}`).checked = true;
+            studentAnswers[currentQuizIndex] = optIdx;
+        }
+
+        function checkCurrentAnswer() {
+            const selected = studentAnswers[currentQuizIndex];
+            if (selected === null) {
+                document.getElementById('feedback-area').innerHTML = `<p class="feedback-msg" style="color: var(--warning-color);">⚠️ يرجى تحديد إجابة أولاً للتحقق منها!</p>`;
+                return;
+            }
+
+            const correctAns = quizData[currentQuizIndex].ans;
+
+            for (let i = 0; i < quizData[currentQuizIndex].opts.length; i++) {
+                const item = document.getElementById(`opt-item-${i}`);
+                if (item) {
+                    item.classList.remove('correct', 'wrong');
+                    if (i === correctAns) item.classList.add('correct');
+                    else if (i === selected) item.classList.add('wrong');
+                }
+            }
+
+            if (selected === correctAns) {
+                document.getElementById('feedback-area').innerHTML = `<p class="feedback-msg" style="color: var(--success-color);">🎉 إجابة ممتازة وصحيحة عبقري مستر روبوت المطور! تابع للأمام.</p>`;
+            } else {
+                document.getElementById('feedback-area').innerHTML = `<p class="feedback-msg" style="color: var(--danger-color);">❌ إجابة غير دقيقة. راجع التلميحة المساعدة بالأعلى وحاول مجدداً بثقة!</p>`;
+            }
+        }
+
+        function navigateQuiz(direction) {
+            currentQuizIndex += direction;
+            if (currentQuizIndex >= 0 && currentQuizIndex < quizData.length) {
+                loadQuizQuestion(currentQuizIndex);
+            }
+        }
+
+        function generateSerial() {
+            const rand = Math.floor(100000 + Math.random() * 900000);
+            return "MRA-" + rand;
+        }
+
+        // ده الجزء اللي بيحسب النتيجة ويقرر هل الطالب يستحق الشهادة ولا لأ
+        function submitQuiz() {
+            let unanswered = 0;
+            studentAnswers.forEach(ans => { if (ans === null) unanswered++; });
+
+            if (unanswered > 0) {
+                if (!confirm(`انتبه! لديك ${unanswered} سؤالاً لم تقم بالإجابة عليها بعد في الاختبار الشامل. هل تريد الاستمرار وإنهاء الاختبار بالكامل على أي حال؟`)) {
+                    return;
+                }
+            }
+
+            clearInterval(quizTimer);
+            document.getElementById('timer-box').style.display = 'none';
+
+            let finalScore = 0;
+            let totalQuestions = quizData.length;
+
+            quizData.forEach((quiz, index) => {
+                if (studentAnswers[index] === quiz.ans) {
+                    finalScore++;
+                }
+            });
+
+            let percentage = Math.round((finalScore / totalQuestions) * 100);
+            const passed = percentage >= 60;
+
+            document.getElementById('quiz-container').style.display = 'none';
+            document.getElementById('result-container').style.display = 'block';
+            document.getElementById('score-summary').innerHTML =
+                `${passed ? '<span class="pass-badge">✔ ناجح</span>' : ''}لقد أجبت بشكل صحيح على <b>${finalScore}</b> من أصل <b>${totalQuestions}</b> سؤال بنسبة نجاح بلغت <b>${percentage}%</b>.`;
+
+            if (passed) {
+                document.getElementById('pass-block').style.display = 'block';
+                document.getElementById('fail-block').style.display = 'none';
+
+                document.getElementById('cert-name').innerText = studentName;
+                document.getElementById('cert-score').innerText = `نسبة النجاح: ${percentage}%`;
+                document.getElementById('cert-answers-count').innerText = `الإجابات الصحيحة: ${finalScore} من ${totalQuestions}`;
+                document.getElementById('cert-serial-num').innerText = generateSerial();
+
+                const today = new Date();
+                const dd = String(today.getDate()).padStart(2, '0');
+                const mm = String(today.getMonth() + 1).padStart(2, '0');
+                const yyyy = today.getFullYear();
+                document.getElementById('cert-date').innerText = `${dd}/${mm}/${yyyy}`;
+            } else {
+                document.getElementById('pass-block').style.display = 'none';
+                document.getElementById('fail-block').style.display = 'block';
+            }
+        }
+
+        // ده الجزء اللي بيعمل مشاركة النتيجة على واتساب بعد ما الشهادة تظهر
+        function shareToWhatsApp() {
+            const targetPhone = "201555772562";
+            const currentScore = document.getElementById('cert-score').innerText.split(': ')[1];
+            const message = `مرحباً مهندس / أندرو، أنا الطالب/الطالبة: ${studentName}.\nلقد اجتزت اختبار الذكاء الاصطناعي وأساسيات البرمجة بنسبة نجاح ${currentScore}! 🎉🤖`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${targetPhone}&text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // ده الجزء اللي بيخلي الشهادة تتعمل صورة وتتنزل كملف صورة على الجهاز
+        function downloadCertificateImage() {
+            const certEl = document.getElementById('certificate');
+            html2canvas(certEl, { scale: 2, backgroundColor: "#0f1420" }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = `شهادة-${studentName || 'الطالب'}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+        }
+
+        // ده الجزء اللي بيحول الشهادة إلى ملف PDF علشان تتنزل أو تطبع بسهولة
+        function downloadCertificatePDF() {
+            const certEl = document.getElementById('certificate');
+            html2canvas(certEl, { scale: 2, backgroundColor: "#0f1420" }).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const { jsPDF } = window.jspdf;
+                const orientation = canvas.width > canvas.height ? 'l' : 'p';
+                const pdf = new jsPDF(orientation, 'pt', [canvas.width, canvas.height]);
+                pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+                pdf.save(`شهادة-${studentName || 'الطالب'}.pdf`);
+            });
+        }
+
+        // ده الجزء اللي بيخلي الشهادة تتفتح في نافذة طباعة جاهزة للنسخ أو الطباعة
+        function printCertificate() {
+            const certEl = document.getElementById('certificate');
+            html2canvas(certEl, { scale: 2, backgroundColor: "#0f1420" }).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const printWindow = window.open('', '_blank');
+                printWindow.document.write(`
+                    <html dir="rtl"><head><title>طباعة الشهادة</title>
+                    <style>
+                        body{margin:0;display:flex;align-items:center;justify-content:center;background:#fff;}
+                        img{max-width:100%;height:auto;}
+                        @media print { body { margin:0; } }
+                    </style>
+                    </head><body>
+                    <img src="${imgData}" onload="window.print();">
+                    </body></html>
+                `);
+                printWindow.document.close();
+            });
+        }
+
+        window.onload = function () {
+            loadQuizQuestion(currentQuizIndex);
+        };
+    </script>
+</body>
+
+</html>
